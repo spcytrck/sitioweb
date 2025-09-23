@@ -38,14 +38,20 @@
             z-index: -1;
         }
 
-        /* Header y Navegación */
+        /* Header y Navegación Mejorada */
         header {
-            background-color: rgba(26, 26, 26, 0.9);
+            background-color: rgba(26, 26, 26, 0.95);
             position: fixed;
             width: 100%;
             z-index: 1000;
-            padding: 15px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            padding: 12px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .header-scrolled {
+            padding: 8px 0;
+            background-color: rgba(26, 26, 26, 0.98);
         }
 
         .nav-container {
@@ -58,7 +64,7 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             background: linear-gradient(45deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
@@ -66,45 +72,136 @@
             color: transparent;
             text-transform: uppercase;
             letter-spacing: 2px;
+            z-index: 1001;
         }
 
-        nav ul {
+        /* Menú de navegación para desktop */
+        .desktop-nav {
+            display: flex;
+        }
+
+        .desktop-nav ul {
             display: flex;
             list-style: none;
         }
 
-        nav ul li {
-            margin-left: 30px;
+        .desktop-nav ul li {
+            margin-left: 25px;
         }
 
-        nav ul li a {
+        .desktop-nav ul li a {
             color: var(--text);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            padding: 5px 0;
+            position: relative;
         }
 
-        nav ul li a:hover {
+        .desktop-nav ul li a:hover {
             color: var(--primary);
+        }
+
+        .desktop-nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .desktop-nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Menú hamburguesa para móviles */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 5px;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(13, 13, 13, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 0.4s ease;
+        }
+
+        .mobile-nav.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-nav ul li {
+            margin: 20px 0;
+        }
+
+        .mobile-nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: block;
+            padding: 10px 20px;
+        }
+
+        .mobile-nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .close-mobile-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         /* Hero Section con título - Espacio reducido */
         .hero {
-            height: 80vh;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding-top: 80px;
+            padding: 0 20px;
             position: relative;
         }
 
         .title {
-            font-size: 4.5rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 3px;
             text-shadow: 0 0 10px rgba(255, 107, 53, 0.7), 
                          0 0 20px rgba(255, 107, 53, 0.5),
                          0 0 30px rgba(255, 107, 53, 0.3);
@@ -114,6 +211,7 @@
             color: transparent;
             animation: flicker 3s infinite alternate;
             margin-bottom: 20px;
+            line-height: 1.1;
         }
 
         @keyframes flicker {
@@ -128,12 +226,13 @@
         }
 
         .subtitle {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 3vw, 1.5rem);
             margin-top: 20px;
             color: #ccc;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.4;
         }
 
         /* Flecha animada */
@@ -163,13 +262,13 @@
 
         /* Secciones generales - Espacio reducido */
         section {
-            padding: 60px 20px;
+            padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 5vw, 2.5rem);
             text-align: center;
             margin-bottom: 60px;
             color: var(--primary);
@@ -459,8 +558,8 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: radial-gradient(circle, #25D366, #128C7E);
             border-radius: 50%;
             display: flex;
@@ -489,7 +588,7 @@
         .whatsapp-float:hover::after {
             content: "¡Tu idea será mi obsesión!";
             position: absolute;
-            bottom: 80px;
+            bottom: 70px;
             right: 0;
             background: rgba(26, 26, 26, 0.9);
             color: white;
@@ -520,7 +619,7 @@
         }
 
         .whatsapp-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: white;
             text-decoration: none;
         }
@@ -528,9 +627,9 @@
         /* Flecha animada para WhatsApp */
         .whatsapp-arrow {
             position: absolute;
-            bottom: 85px;
-            right: 25px;
-            font-size: 1.5rem;
+            bottom: 75px;
+            right: 20px;
+            font-size: 1.2rem;
             color: var(--primary);
             animation: pointDown 1.5s infinite;
             opacity: 0;
@@ -555,8 +654,8 @@
             position: fixed;
             bottom: 30px;
             left: 30px;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background-color: var(--primary);
             border-radius: 50%;
             display: flex;
@@ -564,23 +663,36 @@
             align-items: center;
             z-index: 1000;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1rem;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .desktop-nav ul li {
+                margin-left: 20px;
+            }
+            
+            .desktop-nav ul li a {
+                font-size: 0.95rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-nav {
+                display: flex;
+            }
+            
             .title {
-                font-size: 2.5rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
+                font-size: clamp(2rem, 10vw, 3.5rem);
             }
             
             .services-grid {
@@ -593,7 +705,8 @@
             }
             
             .hero {
-                height: 70vh;
+                height: 100vh;
+                padding-top: 0;
             }
             
             .carousel-container {
@@ -609,13 +722,54 @@
             .whatsapp-float:hover::after {
                 font-size: 0.8rem;
                 white-space: normal;
-                width: 150px;
+                width: 140px;
                 text-align: center;
-                right: -40px;
+                right: -30px;
             }
             
             .whatsapp-arrow {
                 display: none;
+            }
+            
+            .small-logo {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+                bottom: 20px;
+                left: 20px;
+            }
+            
+            section {
+                padding: 60px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .carousel-item {
+                padding: 20px;
+            }
+            
+            .spotify-placeholder {
+                height: 300px;
+            }
+            
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .whatsapp-icon {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -624,11 +778,13 @@
     <!-- Animación de partículas -->
     <div id="particles-js"></div>
     
-    <!-- Header con navegación -->
-    <header>
+    <!-- Header con navegación mejorada -->
+    <header id="mainHeader">
         <div class="nav-container">
             <div class="logo">SPCYTRCK</div>
-            <nav>
+            
+            <!-- Navegación para desktop -->
+            <nav class="desktop-nav">
                 <ul>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#musica">Mi Música</a></li>
@@ -636,9 +792,28 @@
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
+            
+            <!-- Botón de menú hamburguesa para móviles -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
+        
+        <!-- Navegación para móviles -->
+        <nav class="mobile-nav" id="mobileNav">
+            <button class="close-mobile-menu" id="closeMobileMenu">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul>
+                <li><a href="#servicios" class="mobile-nav-link">Servicios</a></li>
+                <li><a href="#musica" class="mobile-nav-link">Mi Música</a></li>
+                <li><a href="#trabajos" class="mobile-nav-link">Trabajos</a></li>
+                <li><a href="#contacto" class="mobile-nav-link">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
     
+    <!-- Resto del contenido se mantiene igual -->
     <!-- Hero Section con título -->
     <section class="hero">
         <div>
@@ -658,63 +833,63 @@
             <div class="service-card" data-service="1">
                 <div class="service-icon">🔧</div>
                 <h3 class="service-title">Builds personalizados</h3>
-                <p class="service-desc">“PCs hechas a tu medida, sin límites.”</p>
+                <p class="service-desc">"PCs hechas a tu medida, sin límites."</p>
             </div>
             
             <!-- Servicio 2 -->
             <div class="service-card" data-service="2">
                 <div class="service-icon">💻</div>
                 <h3 class="service-title">Software suite</h3>
-                <p class="service-desc">“Todo tu software listo para arrancar.”</p>
+                <p class="service-desc">"Todo tu software listo para arrancar."</p>
             </div>
             
             <!-- Servicio 3 -->
             <div class="service-card" data-service="3">
                 <div class="service-icon">⚡</div>
                 <h3 class="service-title">Mantenimiento proactivo</h3>
-                <p class="service-desc">“Tu equipo siempre rápido y seguro.”</p>
+                <p class="service-desc">"Tu equipo siempre rápido y seguro."</p>
             </div>
             
             <!-- Servicio 4 -->
             <div class="service-card" data-service="4">
                 <div class="service-icon">🌐</div>
                 <h3 class="service-title">Web hosting y dominios</h3>
-                <p class="service-desc">“Tu marca con identidad en internet.”</p>
+                <p class="service-desc">"Tu marca con identidad en internet."</p>
             </div>
             
             <!-- Servicio 5 -->
             <div class="service-card" data-service="5">
                 <div class="service-icon">🚀</div>
                 <h3 class="service-title">Web boost</h3>
-                <p class="service-desc">“Web sencilla, moderna y funcional.”</p>
+                <p class="service-desc">"Web sencilla, moderna y funcional."</p>
             </div>
             
             <!-- Servicio 6 -->
             <div class="service-card" data-service="6">
                 <div class="service-icon">🎚️</div>
                 <h3 class="service-title">Edición de audio</h3>
-                <p class="service-desc">“Sonido limpio, claro y pro.”</p>
+                <p class="service-desc">"Sonido limpio, claro y pro."</p>
             </div>
             
             <!-- Servicio 7 -->
             <div class="service-card" data-service="7">
                 <div class="service-icon">🔊</div>
                 <h3 class="service-title">Mezcla y master</h3>
-                <p class="service-desc">“Tu música lista para cualquier plataforma.”</p>
+                <p class="service-desc">"Tu música lista para cualquier plataforma."</p>
             </div>
             
             <!-- Servicio 8 -->
             <div class="service-card" data-service="8">
                 <div class="service-icon">🎵</div>
                 <h3 class="service-title">Instrumentales</h3>
-                <p class="service-desc">“Beats originales para tu estilo.”</p>
+                <p class="service-desc">"Beats originales para tu estilo."</p>
             </div>
             
             <!-- Servicio 9 -->
             <div class="service-card" data-service="9">
                 <div class="service-icon">👻</div>
                 <h3 class="service-title">Ghost production</h3>
-                <p class="service-desc">“Producción completa con tu esencia.”</p>
+                <p class="service-desc">"Producción completa con tu esencia."</p>
             </div>
         </div>
     </section>
@@ -905,6 +1080,39 @@
             }
         });
         
+        // Control del header en scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+        
+        // Control del menú móvil
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMobileMenu.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
         // Función para crear un carrusel
         function createCarousel(carouselId, prevBtnId, nextBtnId, indicatorsId) {
             const carousel = document.getElementById(carouselId);
@@ -1049,20 +1257,6 @@
                 });
             });
         });
-        
-        // Ejemplo de cómo insertar reproductores de Spotify manualmente
-        // Reemplaza los placeholders con código como este:
-        /*
-        <iframe style="border-radius:12px" 
-                src="https://open.spotify.com/embed/track/...?utm_source=generator" 
-                width="100%" 
-                height="352" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy">
-        </iframe>
-        */
     </script>
 </body>
 </html>
