@@ -386,46 +386,19 @@
             max-width: 800px;
             margin: 0 auto;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .carousel {
             display: flex;
-            transition: transform 0.5s ease;
+            transition: transform 1.0s ease;
         }
 
         .carousel-item {
             min-width: 100%;
-            background: rgba(26, 26, 26, 0.8);
             padding: 40px;
-            border: 1px solid rgba(255, 107, 53, 0.2);
         }
 
-        .carousel-item h3 {
-            margin-bottom: 20px;
-            color: var(--accent);
-            font-size: 1.5rem;
-        }
-
-        .spotify-placeholder {
-            height: 352px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background: #1a1a1a;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .spotify-icon {
-            font-size: 4rem;
-            color: #1DB954;
-            margin-bottom: 20px;
-        }
-
-        .carousel-btn {
+           .carousel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -901,30 +874,22 @@
             <div class="carousel" id="musicCarousel">
                 <!-- Canción 1 -->
                 <div class="carousel-item">
-                    <h3>Mi Canción 1</h3>
                     <div class="spotify-placeholder">
-                        <i class="fab fa-spotify spotify-icon"></i>
                         <p><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5dUscOFeGcizMiRDHi65ye?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></p>
                     </div>
                 </div>
                 
                 <!-- Canción 2 -->
                 <div class="carousel-item">
-                    <h3>Mi Canción 2</h3>
                     <div class="spotify-placeholder">
-                        <i class="fab fa-spotify spotify-icon"></i>
-                        <p>Aquí puedes insertar el enlace de Spotify</p>
-                        <p>Reemplaza este contenido con tu iframe</p>
+                        <p><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1Kb6XNITUd3QR538y8oIyQ?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></p>
                     </div>
                 </div>
                 
                 <!-- Canción 3 -->
                 <div class="carousel-item">
-                    <h3>Mi Canción 3</h3>
                     <div class="spotify-placeholder">
-                        <i class="fab fa-spotify spotify-icon"></i>
-                        <p>Aquí puedes insertar el enlace de Spotify</p>
-                        <p>Reemplaza este contenido con tu iframe</p>
+                        <p><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1G14a5pbHUg6xeC6D8018E?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></p>
                     </div>
                 </div>
             </div>
@@ -947,35 +912,26 @@
             <div class="carousel" id="worksCarousel">
                 <!-- Trabajo 1 -->
                 <div class="carousel-item">
-                    <h3>Proyecto para Cliente 1</h3>
                     <div class="spotify-placeholder">
-                        <i class="fab fa-spotify spotify-icon"></i>
-                        <p>Aquí puedes insertar el enlace de Spotify</p>
-                        <p>Reemplaza este contenido con tu iframe</p>
+                        <p><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3LyDzBHqDCB6wtvAdTjpne?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></p>
                     </div>
                 </div>
                 
                 <!-- Trabajo 2 -->
                 <div class="carousel-item">
-                    <h3>Proyecto para Cliente 2</h3>
                     <div class="spotify-placeholder">
-                        <i class="fab fa-spotify spotify-icon"></i>
-                        <p>Aquí puedes insertar el enlace de Spotify</p>
-                        <p>Reemplaza este contenido con tu iframe</p>
+                        <p><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5Akm0p0DXtXsjcoOtpnQQB?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></p>
                     </div>
                 </div>
                 
                 <!-- Trabajo 3 -->
                 <div class="carousel-item">
-                    <h3>Proyecto para Cliente 3</h3>
                     <div class="spotify-placeholder">
-                        <i class="fab fa-spotify spotify-icon"></i>
-                        <p>Aquí puedes insertar el enlace de Spotify</p>
-                        <p>Reemplaza este contenido con tu iframe</p>
+                        <p><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6x3cPnD9hYqIvx7fwYzpAw?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></p>
                     </div>
                 </div>
             </div>
-            
+           
             <button class="carousel-btn carousel-prev" id="worksPrevBtn">&#10094;</button>
             <button class="carousel-btn carousel-next" id="worksNextBtn">&#10095;</button>
             
