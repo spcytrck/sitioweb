@@ -197,22 +197,26 @@
             position: relative;
         }
 
-        .title {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px rgba(255, 107, 53, 0.7), 
-                         0 0 20px rgba(255, 107, 53, 0.5),
-                         0 0 30px rgba(255, 107, 53, 0.3);
-            background: linear-gradient(45deg, #ff6b35, #ff9a3d, #ff6b35);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: flicker 3s infinite alternate;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
+        .title-img {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Efecto destello/glow */
+.glow {
+  animation: flicker 2s infinite;
+  filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 10px #0ff);
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.6;
+  }
+}
 
         @keyframes flicker {
             0%, 18%, 22%, 25%, 53%, 57%, 100% {
