@@ -197,26 +197,22 @@
             position: relative;
         }
 
-        .title-img {
-  max-width: 80%;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-/* Efecto destello/glow */
-.glow {
-  animation: flicker 2s infinite;
-  filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 10px #0ff);
-}
-
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-  }
-  20%, 24%, 55% {
-    opacity: 0.6;
-  }
-}
+        .title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255, 107, 53, 0.7), 
+                         0 0 20px rgba(255, 107, 53, 0.5),
+                         0 0 30px rgba(255, 107, 53, 0.3);
+            background: linear-gradient(45deg, #ff6b35, #ff9a3d, #ff6b35);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: flicker 3s infinite alternate;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
 
         @keyframes flicker {
             0%, 18%, 22%, 25%, 53%, 57%, 100% {
@@ -613,10 +609,6 @@
             transition: opacity 0.3s;
         }
 
-        .whatsapp-float:hover .whatsapp-arrow {
-            opacity: 1;
-        }
-
         @keyframes pointDown {
             0%, 100% {
                 transform: translateY(0);
@@ -627,21 +619,16 @@
         }
 
         /* Logo pequeño en la parte inferior izquierda */
-        .small-logo {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 45px;
-            height: 45px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            font-weight: 800;
-            font-size: 1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+       .small-logo {
+                position: fixed;
+                bottom: 30px;
+                left: 30px;
+                z-index: 1000;
+        }
+
+       .small-logo img {
+                width: 70px;   /* ajusta aquí el tamaño del logo */
+                height: auto;  /* mantiene proporción */
         }
 
         /* Responsive */
@@ -794,7 +781,7 @@
     <!-- Hero Section con título -->
     <section class="hero">
         <div>
-            <img src="timo.png" alt="Tu idea mi obsesión" class="title-img">
+            <img src="img/timo.png" alt="Tu idea mi obsesión" class="title-img">
             <p class="subtitle">Servicios profesionales para llevar tus proyectos al siguiente nivel</p>
         </div>
         <div class="scroll-down" onclick="scrollToSection('servicios')">
@@ -982,7 +969,10 @@
     </a>
     
     <!-- Logo pequeño -->
-    <div class="small-logo">S</div>
+    <div class="small-logo">
+        <img src="img/spcytrck.png" alt="Logo pequeño">
+    </div>
+    
     
     <!-- Modal para descripciones largas -->
     <div class="modal" id="serviceModal">
